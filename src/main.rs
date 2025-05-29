@@ -19,7 +19,6 @@ pub fn poll(gilrs: &mut Gilrs, app: &Weak<MainWindow>) {
 
                 }
             }
-            //app.invoke_button(SharedString::from(event));
         }
     }
 }
@@ -41,10 +40,6 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     ui.set_screen_width(screen_width.parse::<i32>().unwrap());
     ui.set_screen_height(screen_height.parse::<i32>().unwrap());
-
-    // ui.on_button(|| {
-    //     println!("DFDSF");
-    // });
 
     ui.show().unwrap();
     slint::run_event_loop().unwrap();
