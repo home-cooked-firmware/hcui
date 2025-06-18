@@ -1,0 +1,37 @@
+export component StatusBarNetwork {
+    //width: 64px;
+
+    /**
+     * Whether wifi is available on the device.
+     *
+     * This applies to mainly devices that do not have a Wi-Fi chip
+     * (e.g. RG28XX, 35XX 2024). When wifi is unavailable, the status bar
+     * icon hidden completely.
+     */
+    in property<bool> available;
+
+    /**
+     * Whether wifi is enabled.
+     *
+     * When wifi is available but disabled, a special icon is shown to signal
+     * that wifi is disabled.
+     */
+    in property<bool> enabled;
+
+    /**
+     * Wifi strength.
+     */
+    in property<int> strength;
+
+    //if root.available: Rectangle {
+    HorizontalLayout {
+        if available: Rectangle {
+            background: purple;
+
+            Image {
+                source: @image-url("assets/wifi-disabled.svg");
+                colorize: white;
+            }
+        }
+    }
+}

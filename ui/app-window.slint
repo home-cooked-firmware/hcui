@@ -1,5 +1,8 @@
+import { StatusBar } from "./components/status-bar/status-bar.slint";
+import { CardView } from "./components/card-view.slint";
+
 export component MainWindow inherits Window {
-    callback clicked <=> i-touch-area.clicked;
+    // callback clicked <=> i-touch-area.clicked;
     callback button(newText: string);
 
     in property <int> screen-width;
@@ -11,23 +14,39 @@ export component MainWindow inherits Window {
 
     //property <string> text: "Hello, World!";
 
-    i-touch-area := TouchArea {}
+    // i-touch-area := TouchArea {
+    //     clicked => {
+    //         debug("ROOTCLICK?")
+    //     }
+    // }
 
-    button(newText) => {
-        t.text = newText;
-    }
+    // button(newText) => {
+    //     t.text = newText;
+    // }
 
     VerticalLayout {
         spacing: 0px;
-        Rectangle {
-            background: black;
-            vertical-stretch: 1;
+        alignment: LayoutAlignment.stretch;
 
-            t := Text {
-                text: "Hello, World!";
-                font-size: 28pt;
-                color: white;
-            }
+        StatusBar {
+
+        }
+        // Rectangle {
+        //     background: black;
+        //     vertical-stretch: 1;
+
+            // t := Text {
+            //     text: "Hello, World!";
+            //     font-size: 28pt;
+            //     color: white;
+            // }
+        CardView {
+
+        }
+        // }
+        Rectangle {
+            height: 48px;
+            background: purple;
         }
     }
 }

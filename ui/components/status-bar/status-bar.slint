@@ -1,0 +1,30 @@
+import { StatusBarBattery } from "./status-bar-battery.slint";
+import { StatusBarClock } from "./status-bar-clock.slint";
+import { StatusBarNetwork } from "./status-bar-network.slint";
+
+export component StatusBar {
+    height: 30px;
+    width: 100%;
+
+    Rectangle {
+        background: gray;
+
+        HorizontalLayout {
+            padding-left: 12px;
+            padding-right: 12px;
+            alignment: LayoutAlignment.space-between;
+
+            StatusBarNetwork {
+                available: true;
+                enabled: false;
+                strength: 50;
+            }
+            StatusBarClock {
+
+            }
+            StatusBarBattery {
+
+            }
+        }
+    }
+}
